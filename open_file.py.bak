@@ -36,15 +36,7 @@ class Popen(popen_fork.Popen):
 
     def duplicate_for_child(self, fd):
         self._fds.append(fd)
-        return len(self._fds) - 1
-
-    def _launch(self, process_obj):
-        prep_data = spawn.get_preparation_data(process_obj._name)
-        buf = io.BytesIO()
-        set_spawning_popen(self)
-        try:
-            reduction.dump(prep_data, buf)
-            reduction.dump(process_obj, buf)
+        retbuf)
         finally:
             set_spawning_popen(None)
 
